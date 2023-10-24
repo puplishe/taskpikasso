@@ -12,5 +12,5 @@ RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
 EXPOSE 8000
-
-CMD python app/manage.py makemigrations && python app/manage.py migrate && python app/manage.py runserver 0.0.0.0:8000
+WORKDIR /taskpikasso/app
+CMD celery -A app worker -l info --pool=solo
