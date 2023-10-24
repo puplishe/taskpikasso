@@ -5,3 +5,9 @@ class FileSerializer(serializers.ModelSerializer):
     class Meta:
         model = File
         fields = ('id', 'file', 'uploaded_at', 'processed')
+
+class FileUploadSerializer(serializers.ModelSerializer):
+    file = serializers.FileField()
+    class Meta:
+        model = File
+        fields= '__all__'
